@@ -1,5 +1,5 @@
 import { HTTPReceiver, LogLevel } from '@slack/bolt';
-import bolt from 'lib/bolt';
+import bolt from '../../../lib/bolt';
 
 const receiver = new HTTPReceiver({
   signingSecret: process.env.NEXT_PUBLIC_SLACK_SIGNING_SECRET,
