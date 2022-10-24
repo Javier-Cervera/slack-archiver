@@ -1,18 +1,7 @@
 import fetch from 'node-fetch';
 import { token } from './_constants';
 
-export function tokenizeString(string) {
-  const array = string.split(' ').filter((element) => {
-    return element !== '';
-  });
-  console.log('Tokenized version:', array);
-  return array;
-}
-
-export async function postToChannel(channel, res, payload) {
-  console.log('channel:', channel);
-  const channelId = await channelNameToId(channel);
-
+export async function postToChannel(channelId, res, payload) {
   console.log('ID:', channelId);
 
   const message = {
@@ -43,10 +32,7 @@ export async function postToChannel(channel, res, payload) {
   }
 }
 
-async function channelNameToId(channelName) {
-  let generalId;
-  let id;
-
+export async function channelIdToName(channelId) {
   try {
     const url = 'https://slack.com/api/conversations.list';
     const response = await fetch(url, {
@@ -58,15 +44,7 @@ async function channelNameToId(channelName) {
     });
     const data = await response.json();
 
-    data.channels.forEach((element) => {
-      if (element.name === channelName) {
-        id = element.id;
-      }
-      if (element.name === 'general') generalId = element.id;
-    });
-    if (id) {
-      return id;
-    } else return generalId;
+    return data.channels.find((channel) => channel.id === channelId)?.name;
   } catch (err) {
     console.log('fetch Error:', err);
   }
