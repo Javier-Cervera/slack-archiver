@@ -20,7 +20,7 @@ export default async function events(req, res) {
           break;
       }
     } else {
-      // console.log('body:', req.body);
+      console.log('body:', req.body);
     }
   }
 }

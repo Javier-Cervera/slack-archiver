@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { token } from './_constants';
 
 export async function postToChannel(channelId, res, payload) {
-  console.log('ID:', channelId);
+  // console.log('ID:', channelId);
 
   const message = {
     channel: channelId,
@@ -21,7 +21,7 @@ export async function postToChannel(channelId, res, payload) {
     });
     const data = await response.json();
 
-    console.log('data from fetch:', data);
+    // console.log('data from fetch:', data);
     res.json({ ok: true });
   } catch (err) {
     console.log('fetch Error:', err);
@@ -48,5 +48,25 @@ export async function channelIdToName(channelId) {
   } catch (err) {
     console.log('fetch Error:', err);
   }
-  return id;
+}
+
+export async function userIdToName(userId) {
+  const encodedUser = `${encodeURIComponent('user')}=${encodeURIComponent(userId)}`;
+
+  try {
+    const url = 'https://slack.com/api/users.info';
+    const response = await fetch(url, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Bearer ${token}`,
+      },
+      body: encodedUser,
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data.user?.name;
+  } catch (err) {
+    console.log('fetch Error:', err);
+  }
 }
