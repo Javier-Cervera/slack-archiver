@@ -1,9 +1,6 @@
-import fetch from 'node-fetch';
 import { token } from './_constants';
 
 export async function postToChannel(channelId, res, payload) {
-  // console.log('ID:', channelId);
-
   const message = {
     channel: channelId,
     text: payload,
@@ -21,7 +18,6 @@ export async function postToChannel(channelId, res, payload) {
     });
     const data = await response.json();
 
-    // console.log('data from fetch:', data);
     res.json({ ok: true });
   } catch (err) {
     console.log('fetch Error:', err);
@@ -50,7 +46,7 @@ export async function channelIdToName(channelId) {
   }
 }
 
-export async function userIdToName(userId) {
+export async function userInfo(userId) {
   const encodedUser = `${encodeURIComponent('user')}=${encodeURIComponent(userId)}`;
 
   try {
@@ -65,7 +61,7 @@ export async function userIdToName(userId) {
     });
     const data = await response.json();
     // console.log(data);
-    return data.user?.name;
+    return { userName: data.user?.real_name, color: data.user?.color };
   } catch (err) {
     console.log('fetch Error:', err);
   }

@@ -22,5 +22,7 @@ export default async function events(req, res) {
     } else {
       console.log('body:', req.body);
     }
+  } else {
+    res.end();
   }
 }

@@ -1,2 +1,2 @@
-export const token = process.env.NEXT_PUBLIC_SLACK_BOT_TOKEN;
-export const signingSecret = process.env.NEXT_PUBLIC_SLACK_SIGNING_SECRET;
+export const token = process.env.SLACK_BOT_TOKEN;
+export const signingSecret = process.env.SLACK_SIGNING_SECRET;
