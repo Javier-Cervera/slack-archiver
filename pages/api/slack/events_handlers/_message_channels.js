@@ -16,6 +16,7 @@ export async function message_channels(req, res) {
         date: date.toString().slice(0, 24),
         text: event.event.text,
         color: color,
+        ts: event.event.ts,
       }),
     });
     res.end();

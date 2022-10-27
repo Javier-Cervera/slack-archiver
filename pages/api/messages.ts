@@ -7,6 +7,7 @@ interface messagesData {
   date: string;
   text: string;
   color: string;
+  ts: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

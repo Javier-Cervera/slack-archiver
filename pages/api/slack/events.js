@@ -5,7 +5,6 @@ import { signingSecret } from './_constants';
 
 export default async function events(req, res) {
   const type = req.body.type;
-
   if (type === 'url_verification') {
     await challenge(req, res);
   } else if (validateSlackRequest(req, signingSecret)) {

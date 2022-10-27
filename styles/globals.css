@@ -1,8 +1,46 @@
+:root {
+  --color-surface-1: hsl(0deg 0% 8%);
+  --color-surface-2: hsl(0deg 0% 13%);
+  --color-surface-3: hsl(0deg 0% 23%);
+  --color-surface-4: hsl(0deg 0% 30%);
+  --color-surface-5: hsl(0deg 0% 40%);
+  --color-surface-6: hsl(0deg 0% 50%);
+  --color-surface-7: hsl(0deg 0% 60%);
+  --primary: #03dac5;
+  --secondary: #c3a3eb;
+  --error: #cf6679;
+  --border: 2px solid #03dac5;
+  --radius: 8px;
+  --font-size-0: 2rem;
+  --font-size-1: 1.5rem;
+  --font-size-2: 1.25rem;
+  --font-size-3: 1rem;
+  --font-size-35: 0.875rem;
+  --font-size-4: 0.75rem;
+  --font-weight-thin: 300;
+  --font-weight-bold: 600;
+  --font-weight-heavy: 800;
+  --spacer-1: 0.25rem;
+  --spacer-2: 0.5rem;
+  --spacer-3: 1rem;
+  --spacer-4: 1.5rem;
+  --spacer-5: 2rem;
+  --shadows: 7px 7px 7px rgba(0, 0, 0, 0.15);
+}
+
 html,
 body {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: Roboto, sans-serif;
+  /* font-size: 62.5%; */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 a {
@@ -10,16 +48,12 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #fff;
+    background: var(--color-surface-1);
   }
 }

@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  background-color: var(--color-surface-2);
+}
+
+.header h1 {
+  font-size: var(--font-size-0);
+}
+
+.header p {
+  color: var(--secondary);
+  font-size: var(--font-size-2);
+}

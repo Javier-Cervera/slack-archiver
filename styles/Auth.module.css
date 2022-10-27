@@ -1,0 +1,81 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.auth > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+}
+
+.auth > form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px 0;
+}
+
+.auth > form > div > a {
+  text-decoration: none;
+  color: black;
+}
+
+.auth label {
+  color: var(--secondary);
+}
+
+.auth input {
+  padding: 8px 0;
+  background-color: #ffffff;
+  border: var(--border);
+  border-radius: var(--radius);
+}
+
+.auth input.error {
+  border: 1px solid var(--error);
+}
+
+.errorMessage {
+  font-size: 13px;
+  color: var(--error);
+}
+
+.buttonSubmit {
+  padding: 10px;
+  background-color: var(--primary);
+  border: 0;
+  border-radius: var(--radius);
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+.buttonSubmit:hover {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  font-size: 16px;
+  color: var(--primary);
+}
+
+@media screen and (min-width: 600px) {
+  .auth {
+    background-color: var(--global-bg-color-soft);
+  }
+
+  .auth > form {
+    width: 400px;
+    background-color: white;
+    border: var(--border);
+    border-radius: var(--radius);
+  }
+}
